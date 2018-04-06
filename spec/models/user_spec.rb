@@ -9,7 +9,7 @@ RSpec.describe User, type: :model do
 
   describe "attributes" do
     it "responds to username and password" do
-      expect(user).to have_attributes(username: user.username, password: user.password)
+      expect(user).to have_attributes(username: user.username, password: user.password, email: user.email, full_name: user.full_name, bio: user.bio)
     end
   end
 
