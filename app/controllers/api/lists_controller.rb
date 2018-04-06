@@ -4,8 +4,8 @@ class Api::ListsController < ApiController
   def create
     user = User.where(id: params[:user_id]).first
     list = user.lists.build(list_params)
-    
-    if list.save
+
+    if list.save && list.name
       render json: list
     else
       render json: { errors: list.errors.full_messages }, status: :unprocessable_entity

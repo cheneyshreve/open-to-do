@@ -5,7 +5,7 @@ class Api::ItemsController < ApiController
     list = List.where(id: params[:list_id]).first
     item = list.items.build(item_params)
 
-    if item.save
+    if item.save && item.description
       render json: item
     else
       render json: { errors: item.errors.full_messages }, status: :unprocessable_entity
