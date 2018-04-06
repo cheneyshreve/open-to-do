@@ -14,8 +14,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
-gem 'bootstrap'
 gem 'figaro'
+gem 'bootstrap-sass'
 
 group :production do
   gem 'pg'
@@ -25,15 +25,17 @@ end
 group :development do
   gem 'sqlite3'
   gem 'web-console', '~> 2.0'
+  gem 'listen'
 end
 
  group :development, :test do
    gem 'byebug'
    gem 'spring'
-   gem 'rspec-rails'
    gem 'shoulda'
    gem 'faker'
    gem 'factory_bot_rails'
    gem 'pry-rails'
    gem 'better_errors'
+   gem 'rspec-rails', '~> 3.0'
+   gem 'rails-controller-testing'
  end
