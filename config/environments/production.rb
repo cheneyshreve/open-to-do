@@ -14,6 +14,10 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
+  config.serve_static_assets = true
+  config.assets.compile = true
+  config.assets.digest = true
+
   # Attempt to read encrypted secrets from `config/secrets.yml.enc`.
   # Requires an encryption key in `ENV["RAILS_MASTER_KEY"]` or
   # `config/secrets.yml.key`.
@@ -85,7 +89,19 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
+  # ActionMailer Config
+  config.action_mailer.default_url_options = { :host => 'https://calm-waters-75395.herokuapp.com'}
 
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    address:              'smtp.sendgrid.net',
+    port:                 "25",
+    domain:               'heroku.com',
+    user_name:            ENV["SENDGRID_USERNAME"],
+    password:             ENV["SENDGRID_PASSWORD"],
+    authentication:       'plain',
+    enable_starttls_auto: true
+  }
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end

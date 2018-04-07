@@ -17,6 +17,7 @@ gem 'jquery-rails'
 gem 'figaro'
 gem 'bootstrap-sass'
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'devise'
 
 group :production do
   gem 'pg'
