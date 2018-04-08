@@ -14,7 +14,7 @@ class Api::ItemsController < ApiController
 
   def update
     item = Item.find(params[:id])
-  
+
     if item.update(item_params)
       render json: item
     else
@@ -24,7 +24,7 @@ class Api::ItemsController < ApiController
 
   private
   def item_params
-    params.require(:item).permit(:description, :list_id)
+    params.require(:item).permit(:description, :completed, :list_id)
   end
 
 end
