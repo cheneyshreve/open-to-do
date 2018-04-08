@@ -23,8 +23,9 @@ class Api::ItemsController < ApiController
   end
 
   private
+
   def item_params
-    params.require(:item).permit(:description, :completed, :list_id)
+    params.require(:item).permit(:description, :completed)
   end
 
 end
