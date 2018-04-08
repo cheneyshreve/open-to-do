@@ -4,12 +4,14 @@ Rails.application.routes.draw do
   get 'welcome/about'
 
   namespace :api, defaults: { format: :json } do
-    resources :users, only: [:index, :create, :destroy] do
+    resources :users, only: [:create, :destroy] do
       resources :lists, only: [:create, :update, :destroy]
     end
     resources :lists, only: [:create, :update, :destroy] do
       resources :items, only: [:create, :update]
     end
+
+    resources :items, only: [:create, :update, :destroy]
   end
 
 
